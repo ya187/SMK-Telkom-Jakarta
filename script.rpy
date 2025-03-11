@@ -1,4 +1,4 @@
-﻿# Script untuk kelangsungan game visual novel SMK Telkom Jakarta
+# Script untuk kelangsungan game visual novel SMK Telkom Jakarta
 
 # Default settings
 define config.default_text_cps = 7  # Kecepatan teks ketikan (30 karakter per detik)
@@ -8,10 +8,42 @@ define config.default_text_cps = 7  # Kecepatan teks ketikan (30 karakter per de
 transform bigger:
     zoom 1.5
 
+transform smaller:
+    zoom 0.5
+
 # Resource
-# Gambar Template
-image bg blck = "images/blck.png"
+# Backgrounds
 image gerbang = "images/background/bg gerbang.jpeg"
+image gor = "images/background/bg gor.jpeg"
+image kantin = "images/background/bg kantin.jpeg"
+image kelas = "images/background/bg kelas.jpeg"
+image koridor = "images/background/bg koridor.jpeg"
+image lab = "images/background/bg lab.jpeg"
+image lantai2 = "images/background/bg lantaisatu.jpeg"
+image lantai1 = "images/background/bg lantaidua.jpeg"
+image lantai3 = "images/background/bg lantaitiga.jpeg"
+image lobi = "images/background/bg lobi.jpeg"
+image masjid = "images/background/bg masjid.jpeg"
+image petamoja = "images/background/bg petamoja.jpeg"
+
+#Sprites Char
+
+#Kak Zahra (K_Z)
+image k_z happy = "images/characters/K_Z/k_z happy.png"
+image k_z idle = "images/characters/K_Z/k_z idle.png"
+image k_z point = "images/characters/K_Z/k_z point.png"
+image k_z sad = "images/characters/K_Z/k_z sad.png"
+image k_z talk = "images/characters/K_Z/k_z talking.png"
+image k_z smile = "images/characters/K_Z/k_z smiling.png"
+image k_z original = "images/characters/K_Z/k_z original.png"
+
+#Kak Alya (K_A)
+image k_a idle = "images/characters/K_A/k_a idle.png"
+image k_a mad = "images/characters/K_A/k_a mad.png"
+image k_a point = "images/characters/K_A/k_a point_serious.png"
+image k_a talking = "images/characters/K_A/k_a talking.png"
+
+
 
 # Tokoh dalam game
 # Main Character
@@ -244,9 +276,9 @@ label teknik_transmisi:
 label jaringan_akses:
     scene bg school_gate with fade
 
-    "Oke!"
+    k_d "Oke!"
     "Ucap Kak Dika sambil tersenyum."
-    "Kalau begitu, kamu bisa ikut kelompok Kak Alya. Dia ketua dari jurusan Teknik Jaringan Akses."
+    k_d "Kalau begitu, kamu bisa ikut kelompok Kak Alya. Dia ketua dari jurusan Teknik Jaringan Akses."
     
     scene bg lab_telecom with fade
 
@@ -348,53 +380,137 @@ label jaringan_akses:
 label komputer_jaringan:
     scene bg school_gate with fade
 
-    "Oke!"  
+    k_d "Oke!"  
     "Ucap Kak Dika sambil tersenyum."
-    "Kalau begitu, kamu bisa ikut kelompok Kak Zahra. Dia ketua dari jurusan Teknik Komputer dan Jaringan."
+    k_d "Kalau begitu, kamu bisa ikut kelompok Kak Zahra. Dia ketua dari jurusan Teknik Komputer dan Jaringan."
 
     scene bg lab_network with fade
 
-    "Di jurusan TKJ, kita belajar segala hal tentang jaringan komputer dan teknologi informasi."  
+    show k_z talk with fade :
+        smaller
+        xalign 0.5
+    k_z "Di jurusan TKJ, kita belajar segala hal tentang jaringan komputer dan teknologi informasi."  
     "Kak Zahra berbicara dengan ceria, matanya berbinar penuh semangat."  
-    "Di sini kita belajar tentang setting router, troubleshooting jaringan, hingga keamanan siber!"
+    k_z"Di sini kita belajar tentang setting router, troubleshooting jaringan, hingga keamanan siber!"
 
+    show k_z idle :
+        smaller
+        xalign 0.5
     "Beberapa teman sekelompokku terlihat antusias, tapi aku masih ragu."  
     "Aku memang tertarik dengan teknologi, tapi ada sesuatu dalam diriku yang membuatku menahan diri."
 
     "Kak Zahra tiba-tiba menunjukku."  
+    show k_z point :
+        smaller
+        xalign 0.5
     "Kamu kelihatan penasaran! Mau coba setting router?"
 
     "Eh... nggak perlu, Kak, jawabku cepat, berusaha tetap tenang."
 
+    show k_z talking :
+        smaller
+        xalign 0.5
     "Yakin? Aku perhatiin dari tadi kamu kayak udah ngerti dasar-dasarnya. Pasti pernah coba sendiri, kan?"
 
+    show k_z idle :
+        smaller
+        xalign 0.5
     "Aku terkejut dia bisa membaca sikapku. Dengan ragu, aku akhirnya menerima router yang disodorkannya."
 
     "Aku mulai menyambungkan kabel dengan hati-hati, mengikuti instruksi Kak Zahra. Begitu halaman konfigurasi router muncul, tanganku bergerak otomatis."
-
-    "Wah, kamu tahu default username dan passwordnya! seru Kak Zahra kagum. Beneran cuma 'baca-baca sedikit' nih?"
+    
+    show k_z happy :
+        smaller
+        xalign 0.5
+    k_z "Wah, kamu tahu default username dan passwordnya!"
+    
+    show k_z point :
+        smaller
+        xalign 0.5
+    k_z "Beneran cuma 'baca-baca sedikit' nih?"
 
     "Aku mengangkat bahu, mencoba tampak acuh tak acuh meski diam-diam merasa senang dengan pengakuannya."
 
-    "Ini konfigurasi dasar untuk setting WiFi, lanjutku, jari-jariku mengubah beberapa parameter. Kalau mau lebih aman, enkripsinya pakai WPA2-PSK."
+    show k_z smiling :
+        smaller
+        xalign 0.5
+    aku "Ini konfigurasi dasar untuk setting WiFi"
 
-    "Ya ampun! Kamu udah kayak pro! Kenapa nggak bilang dari tadi? kata Kak Zahra sambil tertawa."
+    show k_z idle :
+        smaller
+        xalign 0.5
 
-    "Aku... dulunya suka teknologi, kataku akhirnya."
+    aku "Kalau mau lebih aman, enkripsinya pakai WPA2-PSK."
 
-    "Terus kenapa sekarang nggak suka lagi?"
+    show k_z happy :
+        smaller
+        xalign 0.5
 
-    "Karena teknologi mengingatkanku pada seseorang yang sudah pergi."
+    k_z "Ya ampun! Kamu udah kayak pro! Kenapa nggak bilang dari tadi?"
+    
+    show k_z idle :
+        smaller
+        xalign 0.5
 
-    "Kak Zahra terdiam sejenak, lalu tersenyum hangat. Aku ngerti. Tapi teknologi itu cuma alat. Yang menentukan bagaimana kita menggunakannya adalah kita sendiri."
+    aku "Aku... dulunya suka teknologi"
+
+    show k_z talk :
+        smaller
+        xalign 0.5
+
+    k_z "Terus kenapa sekarang nggak suka lagi?"
+    
+    show k_z idle :
+        smaller
+        xalign 0.5
+
+    aku "Karena teknologi mengingatkanku pada seseorang yang sudah pergi."
+
+    show k_z sad:
+        smaller
+        xalign 0.5
+
+    "Kak Zahra terdiam sejenak"
+
+    k_z "Aku ngerti. Tapi teknologi itu cuma alat."
+
+    show k_z smile:
+        smaller
+        xalign 0.5
+
+    k_z "Yang menentukan bagaimana kita menggunakannya adalah kita sendiri."
 
     "Aku terdiam, mencerna kata-katanya."
 
-    "Hey, tahu nggak? Kita juga belajar ethical hacking! Seru banget! katanya berusaha mengubah suasana."
+    show k_z point:
+        smaller
+        xalign 0.5
 
-    "Ethical hacking?"
+    k_z "Hey, tahu nggak? Kita juga belajar Ethical Hacking! Seru banget!"
 
-    "Iya! Kita belajar cara melindungi sistem dari serangan. Jadi, kalau kamu gabung TKJ, kita bisa jadi superhero digital! katanya sambil mengacungkan tinjunya ke udara."
+    "katanya berusaha mengubah suasana."
+
+    show k_z idle:
+        smaller
+        xalign 0.5
+
+    aku "Ethical hacking?"
+
+    show k_z smiling:
+        smaller
+        xalign 0.5
+
+    k_z "Iya! Kita belajar cara melindungi sistem dari serangan. Jadi, kalau kamu gabung TKJ"
+    
+    show k_z original with fade:
+        smaller
+        xalign 0.5
+
+    k_z "kita bisa jadi superhero digital!"
+
+    show k_z happy with fade:
+        smaller
+        xalign 0.5
 
     "Aku tak bisa menahan senyum tipis. Mungkin... ini bisa jadi awal yang baru bagiku."
 
