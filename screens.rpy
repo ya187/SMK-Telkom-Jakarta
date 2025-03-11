@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 ## Inisialisasi
 ################################################################################
 
@@ -254,8 +254,6 @@ screen quick_menu():
             textbutton _("Lompati") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Otomatis") action Preference("auto-forward", "toggle")
             textbutton _("Simpan") action ShowMenu('save')
-            textbutton _("Simpan.C") action QuickSave()
-            textbutton _("Muat.C") action QuickLoad()
             textbutton _("Setting") action ShowMenu('preferences')
 
 
@@ -315,14 +313,7 @@ screen navigation():
         elif not main_menu:
 
             textbutton _("Menu Utama") action MainMenu()
-
-        textbutton _("Tentang") action ShowMenu("about")
-
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-
-            ## Bantuan tidak perlu atau relevan dengan perangkat mobile.
-            textbutton _("Bantuan") action ShowMenu("help")
-
+            
         if renpy.variant("pc"):
 
             ## Tombol keluar dilarang di iOS dan tidak diperlukan di Android dan
