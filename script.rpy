@@ -2,6 +2,18 @@
 
 # Default settings
 define config.default_text_cps = 7  # Kecepatan teks ketikan (30 karakter per detik)
+
+# Image
+# image kak_dika normal = "kak_dika normal.png"
+# image kak_alya normal = "kak_alya normal.png"
+# image kak_alya marah = "kak_alya marah.png"
+# image kak_zahra normal = "kak_zahra normal.png"
+# image kak_zahra bahagia = "kak_zahra bahagia.png"
+# image kak_zahra kagum = "kak_zahra kagum.png"
+
+
+# transform auto_scale:
+    # zoom 0.5  # Atur sesuai kebutuhan
 # define config.start_label = "start"
 
 # Resource
@@ -9,13 +21,11 @@ define config.default_text_cps = 7  # Kecepatan teks ketikan (30 karakter per de
 image bg blck = "images/blck.png"
 
 # Tokoh dalam game
-# Main Character
 define aku = Character("[inputname]")
-# Side Character
 define kak_zahra = Character("Kak Zahra")
 define kak_alya = Character("Kak Alya")
 define kak_dika = Character("Kak Dika")
-define tp = Character("Seorang Teman")
+define st = Character("Seorang Teman")
 
 # Scene
 scene bg titiktemu at Transform(xalign=0.5, yalign=0.5, zoom=2.0)
@@ -28,7 +38,7 @@ label start:
     scene bg blck
 
     $ inputname = renpy.input("Namaku adalah?")
-    
+    "Namaku adalah [inputname], ini adalah ceritaku..."
 
     "{color=#666666}Aku berdiri sedikit terpisah dari teman-teman sekelasku yang berkumpul di halaman SMP.{/color}"
     "{color=#666666}Mataku memandang jauh, sementara tanganku tanpa sadar memilin ujung seragam yang sedikit kusut.{/color}"
@@ -59,21 +69,22 @@ label start:
 label pengenalan_pagi:
     # ganti scene ke smk telkom
     # tampilkan senior
+    show kak_alya normal at right
+    show kak_zahra normal at left
 
     "{color=#666666}Setibanya di SMK Telkom Jakarta, kami disambut oleh beberapa siswa SMK.{/color}"
     "{color=#666666}Mereka mengenakan seragam rapi dengan almamater merah marun.{/color}"
 
     # tampilkan kaka dika
-    show kak_dika #with smile
+    show kak_dika normal
 
     kak_dika "Selamat datang adik-adik!"
 
-    show aku #with think
 
     "{color=#666666}Wow, semangat banget ya, menyedihkan.{/color}"
     "{color=#666666}Gumamku pelan, tapi mataku diam-diam mengamati dengan seksama.{/color}"
 
-    show kak_dika #with normal
+    show kak_dika normal
 
     kak_dika "Rombongannya dibagi menjadi beberapa kelompok kecil ya.."
     kak_dika "Nah, kamu mau mengenal jurusan apa dulu nih?"
@@ -81,7 +92,6 @@ label pengenalan_pagi:
     kak_dika "Teknik Transmisi, Teknik Jaringan Akses, Teknik Komputer Jaringan, "
     kak_dika "atau Rekayasa Perangkat Lunak?"
 
-    show aku #with shock
 
     "{color=#666666}Tiba-tiba jantungku seperti berhenti ketika mendengar jurusan terakhir itu.{/color}"
     "{color=#666666}Aku masih trauma.{/color}"
@@ -98,147 +108,110 @@ menu:
 label teknik_transmisi:
     scene bg school_gate with fade
 
-    "Oke!" 
-    "Ucap Dika lagi."
-    "Berarti sama Kak Dika ya. Perkenalkan, nama saya Dika Saputra."
-    "Kakak dari jurusan Teknik Transmisi."
-    "Kalian nggak usah canggung sama kakak ya, adik-adik."
-    "Kita cuman beda setahun doang kok! Hehe.."
+    "Oke!"
+    "{color=#666666}Ucap Kak Dika sambil tersenyum.{/color}"
+    show kak_dika normal
+    kak_dika "Berarti sama Kak Dika ya. Perkenalkan, nama saya Dika Saputra."
+    kak_dika "Kakak dari jurusan Teknik Transmisi."
+    kak_dika "Kalian nggak usah canggung sama kakak ya, adik-adik."
+    kak_dika "Kita cuman beda setahun doang kok! Hehe.."
 
-    "Teknik Transmisi ya? Bagus juga pilihanmu," 
-    "Ucap Dika sambil memimpin kelompok kami."
-    "Ini jurusan yang banyak prakteknya lho."
+    kak_dika "Teknik Transmisi ya? Bagus juga pilihanmu."
+    "{color=#666666}Ucap Kak Dika sambil memimpin kelompok kami.{/color}"
+    kak_dika "Ini jurusan yang banyak prakteknya lho."
 
-    "Aku hanya mengangguk singkat, berusaha menampilkan wajah tidak peduli."
-    "Meski diam-diam penasaran."
-    "Lebih baik begini—jaga jarak, jangan terlalu antusias."
-    "Pengalaman mengajariku bahwa ketertarikan yang ditunjukkan bisa menjadi kelemahan yang dimanfaatkan."
+    "{color=#666666}Aku hanya mengangguk singkat, berusaha menampilkan wajah tidak peduli.{/color}"
+    "{color=#666666}Meski diam-diam penasaran.{/color}"
+    "{color=#666666}Lebih baik begini—jaga jarak, jangan terlalu antusias.{/color}"
+    "{color=#666666}Pengalaman mengajariku bahwa ketertarikan yang ditunjukkan bisa menjadi kelemahan yang dimanfaatkan.{/color}"
 
     scene bg lab_telecom with fade
 
-    "Di sini kita belajar tentang sistem telekomunikasi, mulai dari transmisi satelit, gelombang radio, hingga fiber optik."
-    "Kak Dika menjelaskan sambil menunjukkan laboratorium dengan berbagai peralatan canggih."
+    kak_dika "Di sini kita belajar tentang sistem telekomunikasi, mulai dari transmisi satelit, gelombang radio, hingga fiber optik."
+    "{color=#666666}Kak Dika menjelaskan sambil menunjukkan laboratorium dengan berbagai peralatan canggih.{/color}"
 
-    "Beberapa teman sekelasku terlihat terkagum-kagum, bertanya ini-itu dengan semangat."
-    "Aku tetap menjaga jarak di belakang kelompok, mengamati semuanya dalam diam."
-    "Sebuah perangkat di sudut ruangan menarik perhatianku—beberapa kabel fiber optik yang tersambung ke sebuah panel."
+    "{color=#666666}Beberapa teman sekelasku terlihat terkagum-kagum, bertanya ini-itu dengan semangat.{/color}"
+    "{color=#666666}Aku tetap menjaga jarak di belakang kelompok, mengamati semuanya dalam diam.{/color}"
+    "{color=#666666}Sebuah perangkat di sudut ruangan menarik perhatianku—beberapa kabel fiber optik yang tersambung ke sebuah panel.{/color}"
 
-    "Itu apa?"
-    "Tanyaku tanpa sadar, lalu segera menyesali keputusanku."
-    "Seharusnya aku tetap diam saja."
+    aku "Itu apa?"
+    "{color=#666666}Tanyaku tanpa sadar, lalu segera menyesali keputusanku.{/color}"
+    "{color=#666666}Seharusnya aku tetap diam saja.{/color}"
 
-    "Nah, itu sistem transmisi fiber optik kita. Keren kan?"
-    "Kamu tertarik sama teknologi komunikasi?"
+    kak_dika "Nah, itu sistem transmisi fiber optik kita. Keren kan?"
+    kak_dika "Kamu tertarik sama teknologi komunikasi?"
 
-    "Biasa aja," 
-    "Jawabku singkat, kembali ke sikap acuhku."
-    "Cuma penasaran."
+    aku "Biasa aja."
+    "{color=#666666}Jawabku singkat, kembali ke sikap acuhku.{/color}"
+    aku "Cuma penasaran."
 
     scene bg multimedia_room with fade
 
-    "Setelah mengunjungi beberapa laboratorium, kami dibawa ke ruang multimedia."
-    "Di sana ada beberapa komputer dengan program-program yang tidak asing bagiku."
-    "Tanpa kusadari, mataku terpaku pada salah satu layar yang menampilkan baris-baris kode."
+    "{color=#666666}Setelah mengunjungi beberapa laboratorium, kami dibawa ke ruang multimedia.{/color}"
+    "{color=#666666}Di sana ada beberapa komputer dengan program-program yang tidak asing bagiku.{/color}"
+    "{color=#666666}Tanpa kusadari, mataku terpaku pada salah satu layar yang menampilkan baris-baris kode.{/color}"
 
-    "Ini ruang praktikum bersama dengan anak-anak RPL."
-    "Jelas Kak Dika."
-    "Kadang kita juga butuh skill coding dasar."
+    kak_dika "Ini ruang praktikum bersama dengan anak-anak RPL."
+    "{color=#666666}Jelas Kak Dika.{/color}"
+    kak_dika "Kadang kita juga butuh skill coding dasar."
 
-    "Mendengar kata 'RPL' membuat perutku seperti diaduk."
-    "Bayangan ayah yang duduk di depan laptop, mengabaikan kehadiranku saat aku masih kecil, muncul tiba-tiba."
+    "{color=#666666}Mendengar kata 'RPL' membuat perutku seperti diaduk.{/color}"
+    "{color=#666666}Bayangan ayah yang duduk di depan laptop, mengabaikan kehadiranku saat aku masih kecil, muncul tiba-tiba.{/color}"
 
-    "Aku ke toilet dulu."
-    "Ucapku tiba-tiba, perlu keluar dari ruangan itu."
+    aku "Aku ke toilet dulu."
+    "{color=#666666}Ucapku tiba-tiba, perlu keluar dari ruangan itu.{/color}"
 
     scene bg hallway with fade
 
-    "Kembali dari toilet, aku terdiam sejenak."
-    "Jemariku bergerak gelisah, seolah sudah rindu menyentuh keyboard."
-    "Sudah lama aku tidak mencoba coding lagi sejak..."
+    "{color=#666666}Kembali dari toilet, aku terdiam sejenak.{/color}"
+    "{color=#666666}Jemariku bergerak gelisah, seolah sudah rindu menyentuh keyboard.{/color}"
+    "{color=#666666}Sudah lama aku tidak mencoba coding lagi sejak...{/color}"
 
     scene bg lab_coding with fade
 
-    "Di lab pemrograman, beberapa komputer sudah dinyalakan dengan program sederhana yang siap digunakan."
-    "Nah, ini simulasi pemrograman dasar."
-    "Kalian bisa mencoba membuat aplikasi kalkulator sederhana."
+    "{color=#666666}Di lab pemrograman, beberapa komputer sudah dinyalakan dengan program sederhana yang siap digunakan.{/color}"
+    kak_dika "Nah, ini simulasi pemrograman dasar."
+    kak_dika "Kalian bisa mencoba membuat aplikasi kalkulator sederhana."
 
-    "Ada yang mau mencoba duluan?"
+    kak_dika "Ada yang mau mencoba duluan?"
 
-    "Beberapa saat kemudian, teman-temanku mulai mencoba dengan canggung."
-    "Sebagian besar kebingungan dengan konsep dasar pemrograman."
-    "Tanpa sadar, aku mendecih pelan melihat kesalahan-kesalahan sederhana yang mereka lakukan."
+    "{color=#666666}Beberapa saat kemudian, teman-temanku mulai mencoba dengan canggung.{/color}"
+    "{color=#666666}Sebagian besar kebingungan dengan konsep dasar pemrograman.{/color}"
+    "{color=#666666}Tanpa sadar, aku mendecih pelan melihat kesalahan-kesalahan sederhana yang mereka lakukan.{/color}"
 
-    "Kenapa?"
-    "Tanya Kak Dika yang menyadari reaksiku."
+    kak_dika "Kenapa?"
+    "{color=#666666}Tanya Kak Dika yang menyadari reaksiku.{/color}"
 
-    "Bukan apa-apa."
-    "Bantahku cepat."
+    aku "Bukan apa-apa."
+    "{color=#666666}Bantahku cepat.{/color}"
 
-    "Kalau kamu bisa, kenapa nggak bantu mereka?"
-    "Tantang Lina."
+    kak_dika "Kalau kamu bisa, kenapa nggak bantu mereka?"
 
-    "Siapa bilang aku bisa?"
-    "Tanyaku tajam."
+    aku "Siapa bilang aku bisa?"
+    "{color=#666666}Tanyaku tajam.{/color}"
 
-    "Gerak-gerikmu."
-    "Jawabnya santai."
-    "Kamu paham coding kan?"
-    "Terlihat dari caramu memperhatikan layar mereka."
-    "Kamu bahkan menggumamkan koreksi tadi."
+    kak_dika "Gerak-gerikmu. Kamu paham coding kan?"
+    kak_dika "Terlihat dari caramu memperhatikan layar mereka."
+    kak_dika "Kamu bahkan menggumamkan koreksi tadi."
 
-    "Aku tidak menyadari bahwa aku melakukan itu."
-    "Sejenak, aku merasa terpojok."
+    "{color=#666666}Aku tidak menyadari bahwa aku melakukan itu.{/color}"
+    "{color=#666666}Sejenak, aku merasa terpojok.{/color}"
 
-    "Kenapa sih kakak peduli?"
-    "Tanyaku dingin."
+    aku "Kenapa sih kakak peduli?"
+    "{color=#666666}Tanyaku dingin.{/color}"
 
-    "Cuma penasaran aja, kenapa kamu pura-pura nggak bisa padahal bisa."
+    kak_dika "Cuma penasaran aja, kenapa kamu pura-pura nggak bisa padahal bisa."
 
-    "Kata-katanya menusuk tepat sasaran. Aku terdiam, memikirkan jawaban yang tepat."
+    "{color=#666666}Kata-katanya menusuk tepat sasaran. Aku terdiam, memikirkan jawaban yang tepat.{/color}"
 
-    "Oke, saya mau coba."
-    "Tiba-tiba aku berkata, mengangkat tangan dan maju ke depan."
+    aku "Oke, saya mau coba."
+    "{color=#666666}Tiba-tiba aku berkata, mengangkat tangan dan maju ke depan.{/color}"
 
     scene bg lab_coding_focus with fade
 
-    "Entah apa yang merasukiku."
-    "Mungkin ego, mungkin juga rasa kesal karena Kak Dika membaca karakterku dengan tepat."
-    "Aku duduk di depan komputer dan mulai mengetik dengan cepat."
-    "Jari-jariku bergerak dengan familier di atas keyboard, seolah bertemu kembali dengan teman lama."
-
-    "Dalam waktu singkat, aku tidak hanya membuat kalkulator sederhana, tapi juga menambahkan beberapa fitur seperti penghitung akar kuadrat dan logaritma."
-
-    "Lab mendadak sunyi."
-    "Aku tersadar dan segera berhenti mengetik."
-    "Semua mata tertuju padaku dengan tatapan kagum."
-
-    "Wah, kamu jago banget!"
-    "Seru Kak Dika."
-    "Kamu belajar coding di mana?"
-
-    "Internet."
-    "Jawabku singkat, berusaha mengusir kenangan itu."
-
-    "Kamu cocok banget masuk jurusan RPL lho."
-    "Kata Kak Dika antusias."
-    "Dengan dasar seperti ini, kamu bisa—"
-
-    "Aku nggak tertarik dengan RPL."
-    "Potongku tajam, bangkit dari kursi."
-    "Permisi."
-
-    "Aku berjalan cepat keluar dari lab, mengabaikan panggilan Kak Dika di belakangku."
-    "Koridor sekolah terasa panjang dan menyesakkan. Aku butuh udara segar."
-
-    scene bg school_yard with fade
-
-    "Di halaman belakang sekolah, aku duduk sendirian di bawah pohon rindang."
-    "Angin sepoi-sepoi menyapu wajahku, tapi tidak cukup untuk mendinginkan gejolak di dadaku."
-
-    "Boleh duduk di sini?"
-    "Suara familiar Kak Dika terdengar."
-
-    "Tanpa menunggu jawabanku, dia sudah duduk di sampingku."
+    "{color=#666666}Entah apa yang merasukiku.{/color}"
+    "{color=#666666}Mungkin ego, mungkin juga rasa kesal karena Kak Dika membaca karakterku dengan tepat.{/color}"
+    "{color=#666666}Aku duduk di depan komputer dan mulai mengetik dengan cepat.{/color}"
 
     jump end
 
@@ -246,158 +219,183 @@ label jaringan_akses:
     scene bg school_gate with fade
 
     "Oke!"
-    "Ucap Kak Dika sambil tersenyum."
-    "Kalau begitu, kamu bisa ikut kelompok Kak Alya. Dia ketua dari jurusan Teknik Jaringan Akses."
-    
+    "{color=#666666}Ucap Kak Dika sambil tersenyum.{/color}"
+    show kak_dika normal
+    kak_dika "Kalau begitu, kamu bisa ikut kelompok Kak Alya. Dia ketua dari jurusan Teknik Jaringan Akses."
+    hide kak_dika
+
     scene bg lab_telecom with fade
 
-    "Di jurusan Teknik Jaringan Akses, kita fokus pada infrastruktur telekomunikasi yang langsung berhubungan dengan pengguna."
-    "Kak Alya berbicara dengan lantang dan tegas."
-    "Tidak seperti jurusan lain, kita punya target yang TERUKUR dan JELAS! Waktu kita terbatas, jadi dengarkan baik-baik!"
-    
-    "Beberapa teman sekelompokku saling berpandangan, tidak menyangka akan mendapat pemandu yang begitu... intens."
-    "Tiba-tiba, Kak Alya menunjuk ke arahku."
-    
-    "Kamu! Ya, kamu yang baru gabung. Kenapa terlambat? Kita sudah mulai lima menit yang lalu!"
-    "Saya baru pindah kelompok, Kak, jawabku datar, berusaha tetap tenang."
-    
-    "Lain kali, kalau mau pindah, bilang dari awal! Waktu kita berharga! tegurnya tanpa basa-basi. Oke, semuanya ikut saya!"
-    
+    show kak_alya normal
+    kak_alya "Di jurusan Teknik Jaringan Akses, kita fokus pada infrastruktur telekomunikasi yang langsung berhubungan dengan pengguna."
+    "{color=#666666}Kak Alya berbicara dengan lantang dan tegas.{/color}"
+    show kak_alya marah
+    kak_alya "Tidak seperti jurusan lain, kita punya target yang TERUKUR dan JELAS! Waktu kita terbatas, jadi dengarkan baik-baik!"
+
+    "{color=#666666}Beberapa teman sekelompokku saling berpandangan, tidak menyangka akan mendapat pemandu yang begitu... intens.{/color}"
+    "{color=#666666}Tiba-tiba, Kak Alya menunjuk ke arahku.{/color}"
+
+    kak_alya "Kamu! Ya, kamu yang baru gabung. Kenapa terlambat? Kita sudah mulai lima menit yang lalu!"
+    aku "Saya baru pindah kelompok, Kak."
+    "{color=#666666}jawabku datar, berusaha tetap tenang.{/color}"
+
+    show kak_alya normal
+    kak_alya "Lain kali, kalau mau pindah, bilang dari awal! Waktu kita berharga!"
+    kak_alya "Oke, semuanya ikut saya!"
+
     scene bg lab_fiber_optic with fade
-    
-    "Ini laboratorium kabel optik kita, jelasnya sambil menunjuk beberapa perangkat. Di sini kita belajar bagaimana mentransmisikan data melalui jaringan fiber optik yang menghubungkan rumah-rumah pelanggan!"
-    
-    "Aku memperhatikan dengan acuh tak acuh, meski sebenarnya cukup tertarik."
-    "Ada sesuatu tentang cara kerja perangkat keras yang menarik bagiku—jauh berbeda dari dunia pemrograman yang abstrak."
-    
-    "Kamu, Kak Alya kembali menunjukku. Coba jelaskan apa yang kamu tahu tentang fiber optik."
-    "Umm, itu kabel yang mentransmisikan data melalui cahaya? jawabku ragu."
-    
-    "BENAR! serunya. Dan kenapa kita menggunakan fiber optik daripada kabel tembaga? Ada yang tahu?"
-    
-    "Karena kecepatannya jauh lebih tinggi? jawabku pelan."
-    "Tepat! Kabel fiber optik bisa mentransmisikan data hingga 100 Gbps! Itu seratus kali lipat dari kabel tembaga biasa!"
-    
-    "Oh."
-    "Oh? Hanya itu responsmu? tantangnya. Kamu tidak terlihat tertarik. Apa ini bukan jurusan yang kamu minati?"
-    
-    "Saya cuma belum paham sepenuhnya, Kak, jawabku, sedikit defensif."
-    
-    "Bagus. Keraguan adalah awal dari pengetahuan, ucapnya. Mari kita lihat peralatan fusion splicer untuk menyambung kabel fiber optik."
-    
+
+    kak_alya "Ini laboratorium kabel optik kita."
+    "{color=#666666}jelasnya sambil menunjuk beberapa perangkat.{/color}"
+    kak_alya "Di sini kita belajar bagaimana mentransmisikan data melalui jaringan fiber optik yang menghubungkan rumah-rumah pelanggan!"
+
+    "{color=#666666}Aku memperhatikan dengan acuh tak acuh, meski sebenarnya cukup tertarik.{/color}"
+    "{color=#666666}Ada sesuatu tentang cara kerja perangkat keras yang menarik bagiku—jauh berbeda dari dunia pemrograman yang abstrak.{/color}"
+
+    kak_alya "Kamu,"
+    "{color=#666666}Kak Alya kembali menunjukku.{/color}"
+    kak_alya "Coba jelaskan apa yang kamu tahu tentang fiber optik."
+    aku "Umm, itu kabel yang mentransmisikan data melalui cahaya?"
+    "{color=#666666}jawabku ragu.{/color}"
+
+    kak_alya "BENAR!"
+    "{color=#666666}serunya.{/color}"
+    kak_alya "Dan kenapa kita menggunakan fiber optik daripada kabel tembaga? Ada yang tahu?"
+
+    aku "Karena kecepatannya jauh lebih tinggi?"
+    "{color=#666666}jawabku pelan.{/color}"
+    kak_alya "Tepat! Kabel fiber optik bisa mentransmisikan data hingga 100 Gbps! Itu seratus kali lipat dari kabel tembaga biasa!"
+
+    aku "Oh."
+    kak_alya "Oh? Hanya itu responsmu?"
+    "{color=#666666}tantangnya.{/color}"
+    kak_alya "Kamu tidak terlihat tertarik. Apa ini bukan jurusan yang kamu minati?"
+
+    aku "Saya cuma belum paham sepenuhnya, Kak."
+    "{color=#666666}jawabku, sedikit defensif.{/color}"
+
+    kak_alya "Bagus. Keraguan adalah awal dari pengetahuan."
+    "{color=#666666}ucapnya.{/color}"
+    kak_alya "Mari kita lihat peralatan fusion splicer untuk menyambung kabel fiber optik."
+
     scene bg lab_fusion_splicer with fade
-    
-    "Ini adalah alat untuk menyambung kabel fiber optik yang putus. Prosesnya sangat presisi dan membutuhkan ketelitian tinggi, jelasnya. Siapa yang mau mencoba?"
-    
-    "Tanpa kusadari, tanganku terangkat."
-    "Saya, Kak."
-    
-    "Bagus! Akhirnya ada yang berinisiatif! Kemari!"
-    
-    "Aku melangkah maju, mencoba mengingat apa yang pernah kubaca tentang kabel optik di internet."
-    "Kak Alya memberikan instruksi dengan tegas tapi jelas, menunjukkan cara memasang kabel pada penjepit dengan hati-hati."
-    
-    "Pegang steady... fokus... tekanannya harus pas... BAGUS! serunya. Kamu punya bakat untuk pekerjaan presisi!"
-    
-    "Pujian itu terasa menyenangkan. Berbeda dengan coding yang selalu mengingatkanku pada ayah, ini adalah sesuatu yang baru—sesuatu yang murni milikku."
-    
+
+    kak_alya "Ini adalah alat untuk menyambung kabel fiber optik yang putus. Prosesnya sangat presisi dan membutuhkan ketelitian tinggi."
+    "{color=#666666}jelasnya.{/color}"
+    kak_alya "Siapa yang mau mencoba?"
+
+    "{color=#666666}Tanpa kusadari, tanganku terangkat.{/color}"
+    aku "Saya, Kak."
+
+    kak_alya "Bagus! Akhirnya ada yang berinisiatif! Kemari!"
+
+    "{color=#666666}Aku melangkah maju, mencoba mengingat apa yang pernah kubaca tentang kabel optik di internet.{/color}"
+    "{color=#666666}Kak Alya memberikan instruksi dengan tegas tapi jelas, menunjukkan cara memasang kabel pada penjepit dengan hati-hati.{/color}"
+
+    kak_alya "Pegang steady... fokus... tekanannya harus pas... BAGUS!"
+    "{color=#666666}serunya.{/color}"
+    kak_alya "Kamu punya bakat untuk pekerjaan presisi!"
+
+    "{color=#666666}Pujian itu terasa menyenangkan. Berbeda dengan coding yang selalu mengingatkanku pada ayah, ini adalah sesuatu yang baru—sesuatu yang murni milikku.{/color}"
+
     scene bg lab_measurement with fade
-    
-    "Oke, selanjutnya kita akan ke lab pengukuran, Kak Alya melanjutkan. Di sana kalian akan melihat bagaimana kita menganalisis kualitas sinyal pada jaringan akses!"
-    
-    "Psst, bisik seorang teman di sampingku. Kak Alya serem ya?"
-    
-    "Aku mengangkat bahu. Menurutku sih biasa aja. Dia cuma... passionate."
-    
-    "Di lab pengukuran, Kak Alya menunjukkan berbagai alat canggih yang digunakan untuk menganalisis kualitas sinyal."
-    "Ini namanya OTDR—Optical Time Domain Reflectometer, jelasnya. Alat ini bisa mendeteksi di mana letak putusnya kabel fiber optik bahkan dalam jarak puluhan kilometer!"
-    
-    "Aku tidak bisa menyembunyikan ketertarikanku. Teknologi ini benar-benar keren."
-    
-    "Bagaimana cara kerjanya, Kak? tanyaku tanpa sadar."
-    
-    "Mata Kak Alya bersinar. OTDR memancarkan pulsa cahaya ke dalam fiber optik, lalu menganalisis seberapa banyak cahaya yang dipantulkan kembali. Jika ada kerusakan, akan terlihat sebagai spike pada grafik!"
-    
-    "Beberapa menit kemudian, aku sudah terlibat diskusi teknis dengan Kak Alya. Aku lupa sejenak tentang sikapku yang biasanya acuh tak acuh."
-    
-    "Kamu punya potensi di bidang ini, kata Kak Alya tiba-tiba. Tidak banyak siswa SMP yang bisa memahami konsep-konsep teknis secepat kamu."
-    
-    "Aku terdiam, tidak tahu harus merespon bagaimana."
-    
-    "Kenapa kamu tertarik dengan Teknik Jaringan Akses? Biasanya anak-anak lebih tertarik dengan jurusan seperti RPL."
-    
-    "Mendengar kata 'RPL', wajahku langsung berubah. Kak Alya menyadarinya."
-    
-    "Ah, ada masalah dengan RPL?"
-    "Tidak, jawabku singkat. Saya cuma lebih tertarik dengan hardware daripada software."
-    
-    "Baiklah, katanya akhirnya. Tapi ingat, di dunia teknologi, pilihan terbaik adalah memahami keduanya—hardware dan software. Jangan pernah membatasi dirimu hanya karena... apapun alasanmu."
-    
-    "Kata-katanya menusuk tepat sasaran. Aku tertegun."
-    
-    scene bg school_hall with fade
-    
-    "Saat kembali ke kelompok utama, aku memikirkan kata-kata Kak Alya. Mungkinkah dia benar?"
-    "Apakah aku membatasi diriku sendiri hanya karena trauma masa lalu?"
-    
-    "Tapi sebelum aku sempat memikirkannya lebih jauh, pengumuman berkumpul untuk sesi terakhir sudah terdengar. Saatnya kembali ke aula utama."
-    
-    "Setidaknya sekarang aku punya sesuatu yang baru untuk kupikirkan—sesuatu yang tidak terkait dengan bayang-bayang masa lalu."
+
+    kak_alya "Oke, selanjutnya kita akan ke lab pengukuran."
+    "{color=#666666}Kak Alya melanjutkan.{/color}"
+    kak_alya "Di sana kalian akan melihat bagaimana kita menganalisis kualitas sinyal pada jaringan akses!"
+
+    st "Psst," 
+    "{color=#666666}bisik seorang teman di sampingku.{/color}"
+    st "Kak Alya serem ya?"
+
+    aku "Menurutku sih biasa aja. Dia cuma... passionate."
+
+    "{color=#666666}Di lab pengukuran, Kak Alya menunjukkan berbagai alat canggih yang digunakan untuk menganalisis kualitas sinyal.{/color}"
+    kak_alya "Ini namanya OTDR—Optical Time Domain Reflectometer."
+    "{color=#666666}jelasnya.{/color}"
+    kak_alya "Alat ini bisa mendeteksi di mana letak putusnya kabel fiber optik bahkan dalam jarak puluhan kilometer!"
+
+    "{color=#666666}Aku tidak bisa menyembunyikan ketertarikanku. Teknologi ini benar-benar keren.{/color}"
+
+    aku "Bagaimana cara kerjanya, Kak?"
+    "{color=#666666}tanyaku tanpa sadar.{/color}"
+
+    "{color=#666666}Mata Kak Alya bersinar.{/color}"
+    kak_alya "OTDR memancarkan pulsa cahaya ke dalam fiber optik, lalu menganalisis seberapa banyak cahaya yang dipantulkan kembali. Jika ada kerusakan, akan terlihat sebagai spike pada grafik!"
 
     jump end
 
 label komputer_jaringan:
     scene bg school_gate with fade
 
-    "Oke!"  
-    "Ucap Kak Dika sambil tersenyum."
-    "Kalau begitu, kamu bisa ikut kelompok Kak Zahra. Dia ketua dari jurusan Teknik Komputer dan Jaringan."
+    "Oke!"
+    "{color=#666666}Ucap Kak Dika sambil tersenyum.{/color}"
+    show kak_dika normal
+    kak_dika "Kalau begitu, kamu bisa ikut kelompok Kak Zahra. Dia ketua dari jurusan Teknik Komputer dan Jaringan."
 
     scene bg lab_network with fade
 
-    "Di jurusan TKJ, kita belajar segala hal tentang jaringan komputer dan teknologi informasi."  
-    "Kak Zahra berbicara dengan ceria, matanya berbinar penuh semangat."  
-    "Di sini kita belajar tentang setting router, troubleshooting jaringan, hingga keamanan siber!"
+    show kak_zahra bahagia
+    kak_zahra "Di jurusan TKJ, kita belajar segala hal tentang jaringan komputer dan teknologi informasi."
+    "{color=#666666}Kak Zahra berbicara dengan ceria, matanya berbinar penuh semangat.{/color}"
+    kak_zahra "Di sini kita belajar tentang setting router, troubleshooting jaringan, hingga keamanan siber!"
 
-    "Beberapa teman sekelompokku terlihat antusias, tapi aku masih ragu."  
-    "Aku memang tertarik dengan teknologi, tapi ada sesuatu dalam diriku yang membuatku menahan diri."
+    "{color=#666666}Beberapa teman sekelompokku terlihat antusias, tapi aku masih ragu.{/color}"
+    "{color=#666666}Aku memang tertarik dengan teknologi, tapi ada sesuatu dalam diriku yang membuatku menahan diri.{/color}"
 
-    "Kak Zahra tiba-tiba menunjukku."  
-    "Kamu kelihatan penasaran! Mau coba setting router?"
+    "{color=#666666}Kak Zahra tiba-tiba menunjukku.{/color}"
+    show kak_zahra normal
+    kak_zahra "Kamu kelihatan penasaran! Mau coba setting router?"
 
-    "Eh... nggak perlu, Kak, jawabku cepat, berusaha tetap tenang."
+    aku "Eh... nggak perlu, Kak."
+    "{color=#666666}Jawabku cepat, berusaha tetap tenang.{/color}"
 
-    "Yakin? Aku perhatiin dari tadi kamu kayak udah ngerti dasar-dasarnya. Pasti pernah coba sendiri, kan?"
+    kak_zahra "Yakin? Aku perhatiin dari tadi kamu kayak udah ngerti dasar-dasarnya. Pasti pernah coba sendiri, kan?"
 
-    "Aku terkejut dia bisa membaca sikapku. Dengan ragu, aku akhirnya menerima router yang disodorkannya."
+    "{color=#666666}Aku terkejut dia bisa membaca sikapku. Dengan ragu, aku akhirnya menerima router yang disodorkannya.{/color}"
 
-    "Aku mulai menyambungkan kabel dengan hati-hati, mengikuti instruksi Kak Zahra. Begitu halaman konfigurasi router muncul, tanganku bergerak otomatis."
+    "{color=#666666}Aku mulai menyambungkan kabel dengan hati-hati, mengikuti instruksi Kak Zahra. Begitu halaman konfigurasi router muncul, tanganku bergerak otomatis.{/color}"
 
-    "Wah, kamu tahu default username dan passwordnya! seru Kak Zahra kagum. Beneran cuma 'baca-baca sedikit' nih?"
+    show kak_zahra kagum
+    kak_zahra "Wah, kamu tahu default username dan passwordnya!"
+    "{color=#666666}Seru Kak Zahra kagum.{/color}"
+    kak_zahra "Beneran cuma 'baca-baca sedikit' nih?"
 
-    "Aku mengangkat bahu, mencoba tampak acuh tak acuh meski diam-diam merasa senang dengan pengakuannya."
+    "{color=#666666}Aku mengangkat bahu, mencoba tampak acuh tak acuh meski diam-diam merasa senang dengan pengakuannya.{/color}"
 
-    "Ini konfigurasi dasar untuk setting WiFi, lanjutku, jari-jariku mengubah beberapa parameter. Kalau mau lebih aman, enkripsinya pakai WPA2-PSK."
+    kak_zahra "Ini konfigurasi dasar untuk setting WiFi."
+    "{color=#666666}Lanjutku, jari-jariku mengubah beberapa parameter.{/color}"
+    aku "Kalau mau lebih aman, enkripsinya pakai WPA2-PSK."
 
-    "Ya ampun! Kamu udah kayak pro! Kenapa nggak bilang dari tadi? kata Kak Zahra sambil tertawa."
+    show kak_zahra bahagia
+    kak_zahra "Ya ampun! Kamu udah kayak pro! Kenapa nggak bilang dari tadi?"
+    "{color=#666666}Kata Kak Zahra sambil tertawa.{/color}"
 
-    "Aku... dulunya suka teknologi, kataku akhirnya."
+    aku "Aku... dulunya suka teknologi."
+    "{color=#666666}Kataku akhirnya.{/color}"
 
-    "Terus kenapa sekarang nggak suka lagi?"
+    show kak_zahra normal
+    kak_zahra "Terus kenapa sekarang nggak suka lagi?"
 
-    "Karena teknologi mengingatkanku pada seseorang yang sudah pergi."
+    aku "Karena teknologi mengingatkanku pada seseorang yang sudah pergi."
 
-    "Kak Zahra terdiam sejenak, lalu tersenyum hangat. Aku ngerti. Tapi teknologi itu cuma alat. Yang menentukan bagaimana kita menggunakannya adalah kita sendiri."
+    "{color=#666666}Kak Zahra terdiam sejenak, lalu tersenyum hangat.{/color}"
+    show kak_zahra bahagia
+    kak_zahra "Aku ngerti. Tapi teknologi itu cuma alat. Yang menentukan bagaimana kita menggunakannya adalah kita sendiri."
 
-    "Aku terdiam, mencerna kata-katanya."
+    "{color=#666666}Aku terdiam, mencerna kata-katanya.{/color}"
 
-    "Hey, tahu nggak? Kita juga belajar ethical hacking! Seru banget! katanya berusaha mengubah suasana."
+    show kak_zahra normal
+    kak_zahra "Hey, tahu nggak? Kita juga belajar ethical hacking! Seru banget!"
+    "{color=#666666}Katanya berusaha mengubah suasana.{/color}"
 
-    "Ethical hacking?"
+    aku "Ethical hacking?"
 
-    "Iya! Kita belajar cara melindungi sistem dari serangan. Jadi, kalau kamu gabung TKJ, kita bisa jadi superhero digital! katanya sambil mengacungkan tinjunya ke udara."
+    show kak_zahra bahagia
+    kak_zahra "Iya! Kita belajar cara melindungi sistem dari serangan. Jadi, kalau kamu gabung TKJ, kita bisa jadi superhero digital!"
+    "{color=#666666}Katanya sambil mengacungkan tinjunya ke udara.{/color}"
 
-    "Aku tak bisa menahan senyum tipis. Mungkin... ini bisa jadi awal yang baru bagiku."
+    "{color=#666666}Aku tak bisa menahan senyum tipis. Mungkin... ini bisa jadi awal yang baru bagiku.{/color}"
 
     jump end
 
