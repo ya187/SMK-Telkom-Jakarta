@@ -171,14 +171,14 @@ label teknik_transmisi:
     "Di sana ada beberapa komputer dengan program-program yang tidak asing bagiku."
     "Tanpa kusadari, mataku terpaku pada salah satu layar yang menampilkan baris-baris kode."
 
-    "Ini ruang praktikum bersama dengan anak-anak RPL."
+    k_d "Ini ruang praktikum bersama dengan anak-anak RPL."
     "Jelas Kak Dika."
-    "Kadang kita juga butuh skill coding dasar."
+    k_d "Kadang kita juga butuh skill coding dasar."
 
     "Mendengar kata 'RPL' membuat perutku seperti diaduk."
     "Bayangan ayah yang duduk di depan laptop, mengabaikan kehadiranku saat aku masih kecil, muncul tiba-tiba."
 
-    "Aku ke toilet dulu."
+    aku "Aku ke toilet dulu."
     "Ucapku tiba-tiba, perlu keluar dari ruangan itu."
 
     scene bg hallway with fade
@@ -189,11 +189,11 @@ label teknik_transmisi:
 
     scene bg lab_coding with fade
 
-    "Di lab pemrograman, beberapa komputer sudah dinyalakan dengan program sederhana yang siap digunakan."
-    "Nah, ini simulasi pemrograman dasar."
-    "Kalian bisa mencoba membuat aplikasi kalkulator sederhana."
+    k_d "Di lab pemrograman, beberapa komputer sudah dinyalakan dengan program sederhana yang siap digunakan."
+    k_d "Nah, ini simulasi pemrograman dasar."
+    k_d "Kalian bisa mencoba membuat aplikasi kalkulator sederhana."
 
-    "Ada yang mau mencoba duluan?"
+    k_d "Ada yang mau mencoba duluan?"
 
     "Beberapa saat kemudian, teman-temanku mulai mencoba dengan canggung."
     "Sebagian besar kebingungan dengan konsep dasar pemrograman."
@@ -399,13 +399,14 @@ label komputer_jaringan:
     "Beberapa teman sekelompokku terlihat antusias, tapi aku masih ragu."  
     "Aku memang tertarik dengan teknologi, tapi ada sesuatu dalam diriku yang membuatku menahan diri."
 
-    "Kak Zahra tiba-tiba menunjukku."  
     show k_z point :
         smaller
         xalign 0.5
-    "Kamu kelihatan penasaran! Mau coba setting router?"
+    "Kak Zahra tiba-tiba menunjukku."  
 
-    "Eh... nggak perlu, Kak, jawabku cepat, berusaha tetap tenang."
+    k_z "Kamu kelihatan penasaran! Mau coba setting router?"
+
+    aku "Eh... nggak perlu, Kak, jawabku cepat, berusaha tetap tenang."
 
     show k_z talking :
         smaller
