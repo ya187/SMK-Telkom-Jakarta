@@ -1,7 +1,7 @@
 # Script untuk kelangsungan game visual novel SMK Telkom Jakarta
 
 # Default settings
-define config.default_text_cps = 7  # Kecepatan teks ketikan (30 karakter per detik)
+define config.default_text_cps = 7  # Kecepatan teks ketikan (7 karakter per detik)
 
 # Image
 # image kak_dika normal = "kak_dika normal.png"
@@ -213,7 +213,7 @@ label teknik_transmisi:
     "{color=#666666}Mungkin ego, mungkin juga rasa kesal karena Kak Dika membaca karakterku dengan tepat.{/color}"
     "{color=#666666}Aku duduk di depan komputer dan mulai mengetik dengan cepat.{/color}"
 
-    jump end
+    jump lanjut_transmisi
 
 label jaringan_akses:
     scene bg school_gate with fade
@@ -323,7 +323,7 @@ label jaringan_akses:
     "{color=#666666}Mata Kak Alya bersinar.{/color}"
     kak_alya "OTDR memancarkan pulsa cahaya ke dalam fiber optik, lalu menganalisis seberapa banyak cahaya yang dipantulkan kembali. Jika ada kerusakan, akan terlihat sebagai spike pada grafik!"
 
-    jump end
+    jump lanjut_akses
 
 label komputer_jaringan:
     scene bg school_gate with fade
@@ -397,7 +397,65 @@ label komputer_jaringan:
 
     "{color=#666666}Aku tak bisa menahan senyum tipis. Mungkin... ini bisa jadi awal yang baru bagiku.{/color}"
 
-    jump end
+    jump lanjut_jaringan
 
-label end:
+label lanjut_transmisi:
+    "{color=#666666}Bel berbunyi nyaring, menandakan waktu istirahat. Aku masih duduk di bawah pohon, memikirkan percakapanku dengan Kak Dika. Kata-katanya tentang tidak kehilangan dua hal sekaligus masih terngiang di telingaku.{/color}"
+    
+    "Waktunya kumpul!" 
+    kak_alya "Istirahat selesai, kita akan mulai sesi kedua pengenalan jurusan!"
+    
+    "{color=#666666}Dengan langkah berat, aku kembali ke lobi. Semua siswa sudah berkumpul, menunggu instruksi selanjutnya.{/color}"
+    
+    kak_dika "Baiklah adik-adik, setelah sesi pertama tadi, sekarang kita akan melanjutkan dengan sesi kedua pengenalan jurusan."
+    kak_dika "Kalian boleh memilih jurusan yang berbeda dari sesi pertama untuk mendapatkan pengalaman yang lebih beragam."
+    
+    "{color=#666666}Kak Dika menjelaskan bahwa di sesi kedua ini, ada tiga jurusan yang bisa dikunjungi: Teknik Jaringan Akses, Teknik Komputer Jaringan (TKJ), dan Rekayasa Perangkat Lunak (RPL).{/color}"
+    
+    "{color=#666666}Mendengar kata RPL, jantungku berdegup kencang. Bayangan tentang ayah kembali berkelebat di pikiranku. Tapi kali ini, ada sesuatu yang berbeda. Kata-kata Kak Dika membuka celah kecil dalam perisaiku.{/color}"
+    
+    st "Kemana kamu akan pergi?"
+    aku "Entahlah, {color=#666666}jawabku pendek, masih berpikir.{/color}"
+    
+    "{color=#666666}Di depanku terbentang tiga pilihan. Teknik Jaringan Akses yang tampaknya berfokus pada infrastruktur telekomunikasi. TKJ yang mungkin lebih ke arah hardware dan networking. Dan... RPL, jurusan yang selama ini kuhindari.{/color}"
+    
+menu:
+    "Ending 1 RPL":
+        jump ending_rpl
+    "Ending 2 TKJ":
+        jump ending_tkj
+    "Ending 3 TJA":
+        jump ending_tja
+    "Ending 4 TR":
+            jump ending_tr
+
+label lanjut_akses:
+    "{color=#666666}Setidaknya sekarang aku punya sesuatu yang baru untuk dipikirkan—sesuatu yang tidak terkait dengan bayang-bayang masa lalu. Mungkin... mungkin ada jalan lain untukku selain menghindari apa yang kusukai.{/color}"
+    
+    "{color=#666666}Di lobi, Kak Dika memberikan arahan ke kami. Aku berdiri agak di belakang, setengah mendengarkan. Pikiranku masih dipenuhi percakapan dengan Kak Alya tadi.{/color}"
+    
+    kak_dika "Setelah sesi pertama tadi, sekarang kita akan melanjutkan dengan sesi kedua pengenalan jurusan."
+    kak_dika "Kalian boleh memilih jurusan yang berbeda dari sesi pertama untuk mendapatkan pengalaman yang lebih beragam."
+    kak_dika "Manfaatkan kesempatan ini untuk lebih mengenal SMK Telkom Jakarta."
+    
+    "{color=#666666}Kak Dika menjelaskan bahwa di sesi kedua ini, ada tiga jurusan yang bisa dikunjungi: Teknik Jaringan Akses, Teknik Komputer Jaringan (TKJ), dan Rekayasa Perangkat Lunak (RPL).{/color}"
+    
+    "{color=#666666}Mendengar kata RPL, jantungku berdegup kencang. Bayangan tentang ayah kembali berkelebat di pikiranku. Tapi kali ini, ada sesuatu yang berbeda. Kata-kata Kak Dika membuka celah kecil dalam perisaiku.{/color}"
+    
+    st "Kemana kamu akan pergi?"
+    aku "Entahlah, {color=#666666}jawabku pendek, masih berpikir.{/color}"
+    
+    "{color=#666666}Di depanku terbentang tiga pilihan. Teknik Transmisi yang tampaknya berfokus pada cara data dikirim melalui media komunikasi. TKJ yang mungkin lebih ke arah hardware dan networking. Dan... RPL, jurusan yang selama ini kuhindari.{/color}"
+    
+menu:
+    "Ending 5 RPL":
+        jump ending_rpl
+    "Ending 6 TKJ":
+        jump ending_tkj
+    "Ending 7 TJA":
+        jump ending_tja
+    "Ending 8 TR":
+        jump ending_tr
+
+label lanjut_jaringan:
     "terima kasih"
